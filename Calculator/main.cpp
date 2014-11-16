@@ -1,11 +1,15 @@
 #include <QApplication>
 #include <QtWidgets>
 #include <QtCore>
+#include <QDir>
+#include <QString>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     QWidget *window = new QWidget;
+
+    //Gui layouts
     window->setWindowTitle("My App");
 
     QGridLayout *layout = new QGridLayout;
@@ -17,7 +21,18 @@ int main(int argc, char *argv[])
     layout->addWidget(txtName, 0, 1);
 
     window->setLayout(layout);
-    //window->show();
+    window->show();
+
+    //playing with directories
+    QDir mDir;
+    QString mPath = "C:/test/sadasd";
+    if(!mDir.exists(mPath)) {
+        mDir.mkpath(mPath);
+        qDebug() << "Success!";
+    } else {
+        qDebug() << "Already exists";
+    }
+
     return app.exec();
 }
 
