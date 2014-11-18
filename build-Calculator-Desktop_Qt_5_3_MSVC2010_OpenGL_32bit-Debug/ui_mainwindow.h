@@ -14,10 +14,14 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
+#include <QtWidgets/QSplitter>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -30,6 +34,11 @@ public:
     QAction *actionNew_Window;
     QWidget *centralWidget;
     QPlainTextEdit *plainTextEdit;
+    QPushButton *pushButton;
+    QLineEdit *lineEdit;
+    QSplitter *splitter;
+    QRadioButton *radioButton;
+    QRadioButton *radioButton_2;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QToolBar *mainToolBar;
@@ -46,7 +55,23 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         plainTextEdit = new QPlainTextEdit(centralWidget);
         plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
-        plainTextEdit->setGeometry(QRect(80, 50, 231, 141));
+        plainTextEdit->setGeometry(QRect(80, 40, 231, 71));
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(150, 200, 75, 23));
+        lineEdit = new QLineEdit(centralWidget);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(20, 200, 113, 21));
+        splitter = new QSplitter(centralWidget);
+        splitter->setObjectName(QStringLiteral("splitter"));
+        splitter->setGeometry(QRect(240, 150, 82, 34));
+        splitter->setOrientation(Qt::Vertical);
+        radioButton = new QRadioButton(splitter);
+        radioButton->setObjectName(QStringLiteral("radioButton"));
+        splitter->addWidget(radioButton);
+        radioButton_2 = new QRadioButton(splitter);
+        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
+        splitter->addWidget(radioButton_2);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -74,6 +99,9 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         actionNew_Window->setText(QApplication::translate("MainWindow", "New Window", 0));
+        pushButton->setText(QApplication::translate("MainWindow", "Click Me", 0));
+        radioButton->setText(QApplication::translate("MainWindow", "Cats", 0));
+        radioButton_2->setText(QApplication::translate("MainWindow", "Dogs", 0));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
     } // retranslateUi
 
