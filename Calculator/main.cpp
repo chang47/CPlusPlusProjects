@@ -5,6 +5,7 @@
 #include <QString>
 #include "mainwindow.h"
 #include "mydialog.h"
+#include "newtree.h"
 
 
 void Write(QString Filename) {
@@ -33,6 +34,17 @@ void Read(QString Filename) {
     mFile.close();
 }
 
+void ReadDirectory() {
+    QDir mDir;
+    QString mPath = "C:/test/sadasd";
+    if(!mDir.exists(mPath)) {
+        mDir.mkpath(mPath);
+        qDebug() << "Success!";
+    } else {
+        qDebug() << "Already exists";
+    }
+}
+
 void makeWindow() {
     QWidget *window = new QWidget;
 
@@ -55,29 +67,23 @@ void makeWindow() {
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    MainWindow w;
-    w.show();
-    MyDialog m;
-    m.show();
+    //MainWindow w;
+    //w.show();
+    //MyDialog m;
+    //m.show();
     //makeWindow();
-
+    NewTree t;
+    t.show();
     //playing with directories
-    QDir mDir;
-    QString mPath = "C:/test/sadasd";
-    if(!mDir.exists(mPath)) {
-        mDir.mkpath(mPath);
-        qDebug() << "Success!";
-    } else {
-        qDebug() << "Already exists";
-    }
+    //ReadDirectory();
 
     //read and write
-    QString text = "C:/test/text.txt";
-    Write(text);
+    //QString text = "C:/test/text.txt";
+    //Write(text);
     //Read(text);
 
     //read Resource files
-    Read(":/MyFiles/Calculator.pro");
+    //Read(":/MyFiles/Calculator.pro");
 
     return app.exec();
 }

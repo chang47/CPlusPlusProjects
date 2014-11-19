@@ -15,6 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -39,6 +40,7 @@ public:
     QSplitter *splitter;
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
+    QListWidget *listWidget;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QToolBar *mainToolBar;
@@ -72,6 +74,9 @@ public:
         radioButton_2 = new QRadioButton(splitter);
         radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
         splitter->addWidget(radioButton_2);
+        listWidget = new QListWidget(centralWidget);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setGeometry(QRect(30, 120, 91, 71));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));

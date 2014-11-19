@@ -11,12 +11,16 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     //setCentralWidget(ui->plainTextEdit);
+    for(int i = 0; i < 10; i++) {
+        ui->listWidget->addItem(QString::number(i) + " item!");
+    }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
 void MainWindow::on_actionNew_Window_triggered()
 {
@@ -27,6 +31,6 @@ void MainWindow::on_actionNew_Window_triggered()
 
 void MainWindow::on_pushButton_clicked()
 {
-    QMessageBox::information(this, "Title here", ui->lineEdit->text());
-
+    QListWidgetItem *itm = ui->listWidget->currentItem();
+    QMessageBox::information(this, "Title here", itm->text());
 }

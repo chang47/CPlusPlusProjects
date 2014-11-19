@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include "mydialog.h"
+#include <QtCore>
+#include <QtGui>
+#include <QtWidgets>
 
 namespace Ui {
 class MainWindow;
